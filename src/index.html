@@ -8,6 +8,64 @@
     <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon" />
     <script src="./js/main.js" defer type="module"></script>
   </head>
-
-  <body></body>
+  <body>
+    <div id="sidebar">
+      <form id="form-search">
+        <input type="text" placeholder="Search by location" required />
+        <button type="submit">Search</button>
+      </form>
+      <ul id="form-results">
+        <li>
+          <span>Lima, PE</span>
+          <img src="/images/arrow.svg" alt="Arrow icon" />
+        </li>
+      </ul>
+    </div>
+    <section id="current-weather">
+      <button>Search for places</button>
+      <button><img src="/images/location.svg" alt="Location icon" /></button>
+      <img src="/images/weather/01d.png" alt="Current weather icon" />
+      <h1>22 <span>°C</span></h1>
+      <p>Clear Sky</p>
+      <p><span>Today</span><span>.</span><span>Tue, 22 Oct</span></p>
+      <div>
+        <img src="/images/location_on.svg" alt="Location icon" />
+        <p>Lima</p>
+      </div>
+    </section>
+    <section id="forecast">
+      <div id="forecast-cards">
+        <div class="forecast-card">
+          <span>Tomorrow</span>
+          <img src="/images/weather/01d.png" alt="Weather icon" />
+          <span>22°C</span>
+          <span>17°C</span>
+        </div>
+        <div class="forecast-card">
+          <span>Tomorrow</span>
+          <img src="/images/weather/01d.png" alt="Weather icon" />
+          <span>22°C</span>
+          <span>17°C</span>
+        </div>
+      </div>
+      <div id="forecast-highlights">
+        <div>
+          <p>Wind status</p>
+          <p>4.64 ms</p>
+        </div>
+        <div>
+          <p>Humidity</p>
+          <p>83%</p>
+        </div>
+        <div>
+          <p>Visibility</p>
+          <p>10 km</p>
+        </div>
+        <div>
+          <p>Air Pressure</p>
+          <p>1016 mb</p>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
