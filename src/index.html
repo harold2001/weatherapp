@@ -6,6 +6,12 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <script src="./js/main.js" defer type="module"></script>
   </head>
   <body>
@@ -22,13 +28,25 @@
       </ul>
     </div>
     <section id="current-weather">
-      <button>Search for places</button>
-      <button><img src="/images/location.svg" alt="Location icon" /></button>
-      <img src="/images/weather/01d.png" alt="Current weather icon" />
-      <h1>22 <span>°C</span></h1>
-      <p>Clear Sky</p>
-      <p><span>Today</span><span>.</span><span>Tue, 22 Oct</span></p>
       <div>
+        <button id="btn-search">Search for places</button>
+        <button id="btn-location">
+          <img src="/images/location.svg" alt="Location icon" />
+        </button>
+      </div>
+      <div id="current-img-container">
+        <img
+          src="/images/weather/01d.png"
+          alt="Current weather icon"
+          id="current-img"
+        />
+      </div>
+      <h1>22<span>°C</span></h1>
+      <p id="current-description">Clear Sky</p>
+      <p id="current-date">
+        <span>Today</span><span>.</span><span>Tue, 22 Oct</span>
+      </p>
+      <div id="current-location">
         <img src="/images/location_on.svg" alt="Location icon" />
         <p>Lima</p>
       </div>

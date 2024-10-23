@@ -1,24 +1,163 @@
 :root {
-  --font-body: Arial, Helvetica, sans-serif;
-  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-body: "Raleway", sans-serif;
+
   /* colors */
-  --primary-color: #f0a868;
-  --secondary-color: #525b0f;
-  --tertiary-color: #a4b8c4;
-  --light-grey: #d0d0d0;
-  --dark-grey: #303030;
+  --primary-color: #1e213a;
+  --secondary-color: #100e1d;
+  --tertiary-color: #6e707a;
+  --primary-font-color: #fff;
+  --secondary-font-color: #a09fb1;
 
   /* sizes */
   --font-base: 18px;
   --small-font: 0.8em;
-  --large-font: 1.2em;
+  --large-font: 1.5em;
+  --very-large-font: 6em;
 }
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-base);
-  color: var(--dark-grey);
+  color: var(--primary-font-color);
+}
+
+img {
+  width: auto;
+  height: 100%;
+}
+
+/* Sidebar */
+#sidebar {
+  display: none;
+}
+
+/* Current Weather */
+#current-weather {
+  height: 100vh;
+  padding: 2rem 0;
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 80% 20%;
+  justify-items: center;
+  align-items: center;
+}
+
+#current-weather > div:first-child {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 2rem;
+}
+
+#btn-search {
+  align-self: flex-start;
+  padding: 10px;
+  width: 170px;
+  background-color: var(--tertiary-color);
+  color: var(--primary-font-color);
+  border: none;
+  cursor: pointer;
+  font-size: var(--small-font);
+}
+
+#btn-location {
+  height: 40px;
+  padding: 8px;
+  background-color: var(--tertiary-color);
+  color: var(--primary-font-color);
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+#current-img-container {
+  padding: 1.2rem 0;
+  grid-column: 1/3;
+  grid-row: 2/3;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+#current-img-container::after {
+  content: "";
+  opacity: 0.05;
+  background-image: url("/images/Cloud-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 140% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#current-img {
+  width: auto;
+  height: 100%;
+}
+
+#current-weather > h1 {
+  grid-column: 1/3;
+  grid-row: 3/4;
+  font-size: var(--very-large-font);
+  font-weight: bold;
+  font-weight: 500;
+}
+
+#current-weather > h1 > span {
+  font-size: 0.6em;
+  color: var(--secondary-font-color);
+  font-weight: 500;
+}
+
+#current-description {
+  grid-column: 1/3;
+  grid-row: 4/5;
+  font-size: var(--large-font);
+  color: var(--secondary-font-color);
+  font-weight: 600;
+}
+
+#current-date {
+  grid-column: 1/3;
+  grid-row: 5/6;
+  font-size: var(--small-font);
+  color: var(--secondary-font-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#current-location {
+  grid-column: 1/3;
+  grid-row: 6/7;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+#current-location > img {
+  width: 1.5rem;
+}
+
+/* Forecast */
+#forecast {
+  background-color: var(--secondary-color);
 }
