@@ -10,7 +10,7 @@
 
   /* sizes */
   --font-base: 18px;
-  --small-font: 0.8em;
+  --small-font: 0.85em;
   --large-font: 1.5em;
   --very-large-font: 6em;
 }
@@ -29,8 +29,7 @@ body {
 }
 
 img {
-  width: auto;
-  height: 100%;
+  max-width: 100%;
 }
 
 /* Sidebar */
@@ -83,8 +82,12 @@ img {
   cursor: pointer;
 }
 
+#btn-location > img {
+  height: 100%;
+}
+
 #current-img-container {
-  padding: 1.2rem 0;
+  padding: 1rem 0;
   grid-column: 1/3;
   grid-row: 2/3;
   width: 100%;
@@ -160,4 +163,50 @@ img {
 /* Forecast */
 #forecast {
   background-color: var(--secondary-color);
+  min-height: 100vh;
+}
+
+#forecast-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: fit-content;
+  margin: auto;
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.forecast-card {
+  height: 160px;
+  width: 120px;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: var(--small-font);
+}
+
+.forecast-card > span:nth-child(1) {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.forecast-card > img {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  width: 70%;
+}
+
+.forecast-card > span:nth-child(3) {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+
+.forecast-card > span:nth-child(4) {
+  grid-column: 2/3;
+  grid-row: 3/4;
 }
