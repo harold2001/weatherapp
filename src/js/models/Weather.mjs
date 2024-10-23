@@ -1,10 +1,10 @@
 const weatherURL = import.meta.env.VITE_API_WEATHER_URL;
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_WEATHER_KEY = import.meta.env.VITE_API_WEATHER_KEY;
 
 export default class Weather {
   async getCurrentCityData(cityName) {
     const response = await fetch(
-      `${weatherURL}?q=${cityName}&appid=${API_KEY}&units=metric`,
+      `${weatherURL}?q=${cityName}&appid=${API_WEATHER_KEY}&units=metric`,
     );
     const data = await this.convertToJson(response);
     console.log(data);

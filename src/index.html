@@ -19,28 +19,21 @@
       <div id="sidebar">
         <button id="btn-close">X</button>
         <form id="form-search">
+          <label for="city"
+            >Type something and results will appear below...
+          </label>
           <input
             type="text"
             placeholder="Search by location"
             name="city"
+            id="city"
             required
           />
+
           <button type="submit">Search</button>
         </form>
-        <ul id="form-results">
-          <li>
-            <span>Lima, PE</span>
-            <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
-          </li>
-          <li>
-            <span>Lima, PE</span>
-            <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
-          </li>
-          <li>
-            <span>Lima, PE</span>
-            <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
-          </li>
-        </ul>
+        <p id="results-message"></p>
+        <ul id="form-results"></ul>
       </div>
       <section id="current-weather">
         <div>

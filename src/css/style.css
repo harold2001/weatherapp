@@ -51,7 +51,7 @@ h2 {
 }
 
 #sidebar.active {
-  width: 420px;
+  width: 100%;
   padding: 1.5rem;
 }
 
@@ -68,14 +68,22 @@ h2 {
 
 #form-search {
   margin-bottom: 10px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
 
-#form-search > input {
-  width: 100%;
+#form-search > label {
+  font-size: var(--small-font);
+  color: var(--secondary-font-color);
+  flex-grow: 2;
+  grid-column: span 2;
+}
+
+input[name="city"] {
+  grid-column: span 1;
   padding: 0.7rem 1rem;
   border: 1px solid white;
   background-color: transparent;
@@ -83,7 +91,7 @@ h2 {
   font-size: var(--small-font);
 }
 
-#form-search > input:focus {
+input[name="city"]:focus {
   outline: none;
 }
 
@@ -101,6 +109,28 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  overflow-y: auto;
+  max-height: 80%;
+}
+
+#form-results::-webkit-scrollbar {
+  width: 5px;
+}
+
+#form-results:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+#form-results::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#form-results::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+}
+
+#form-results::-webkit-scrollbar-thumb:hover {
+  background-color: var(--tertiary-color);
 }
 
 #form-results > li {
@@ -124,6 +154,13 @@ h2 {
 #form-results > li > img {
   height: 25px;
   visibility: hidden;
+}
+
+#results-message {
+  display: none;
+  font-size: var(--small-font);
+  color: var(--secondary-font-color);
+  margin-top: 1rem;
 }
 
 /* Current Weather */

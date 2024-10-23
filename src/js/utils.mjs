@@ -100,3 +100,13 @@ export function alertMessage(message, scroll = true, duration = 3000) {
     main.removeChild(alert);
   }, duration);
 }
+
+export async function convertToJson(res) {
+  const jsonResponse = await res.json();
+
+  if (res.ok) {
+    return jsonResponse;
+  } else {
+    throw { name: "servicesError", message: jsonResponse };
+  }
+}
