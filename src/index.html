@@ -15,122 +15,124 @@
     <script src="./js/main.js" defer type="module"></script>
   </head>
   <body>
-    <div id="sidebar">
-      <form id="form-search">
-        <input
-          type="text"
-          placeholder="Search by location"
-          name="city"
-          required
-        />
-        <button type="submit">Search</button>
-      </form>
-      <ul id="form-results">
-        <li>
-          <span>Lima, PE</span>
-          <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
-        </li>
-        <li>
-          <span>Lima, PE</span>
-          <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
-        </li>
-        <li>
-          <span>Lima, PE</span>
-          <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
-        </li>
-      </ul>
-    </div>
-    <section id="current-weather">
-      <div>
-        <button id="btn-search">Search for places</button>
-        <button id="btn-location">
-          <img src="/images/location.svg" alt="Location icon" />
-        </button>
+    <main>
+      <div id="sidebar">
+        <form id="form-search">
+          <input
+            type="text"
+            placeholder="Search by location"
+            name="city"
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+        <ul id="form-results">
+          <li>
+            <span>Lima, PE</span>
+            <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
+          </li>
+          <li>
+            <span>Lima, PE</span>
+            <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
+          </li>
+          <li>
+            <span>Lima, PE</span>
+            <img src="/images/arrow.svg" alt="Arrow icon" class="arrow-icon" />
+          </li>
+        </ul>
       </div>
-      <div id="current-img-container">
-        <img
-          src="/images/weather/01d.png"
-          alt="Current weather icon"
-          id="current-img"
-        />
-      </div>
-      <h1>22<span>°C</span></h1>
-      <p id="current-description">Clear Sky</p>
-      <p id="current-date">
-        <span>Today</span><span>.</span><span>Tue, 22 Oct</span>
-      </p>
-      <div id="current-location">
-        <img src="/images/location_on.svg" alt="Location icon" />
-        <p>Lima</p>
-      </div>
-    </section>
-    <section id="forecast">
-      <div id="forecast-temperature-btns">
-        <button class="active">°C</button>
-        <button>°F</button>
-      </div>
-      <div id="forecast-cards">
-        <div class="forecast-card">
-          <span>Tomorrow</span>
-          <img src="/images/weather/01d.png" alt="Weather icon" />
-          <span>22°C</span>
-          <span>17°C</span>
+      <section id="current-weather">
+        <div>
+          <button id="btn-search">Search for places</button>
+          <button id="btn-location">
+            <img src="/images/location.svg" alt="Location icon" />
+          </button>
         </div>
-        <div class="forecast-card">
-          <span>Tomorrow</span>
-          <img src="/images/weather/01d.png" alt="Weather icon" />
-          <span>22°C</span>
-          <span>17°C</span>
+        <div id="current-img-container">
+          <img
+            src="/images/weather/01d.png"
+            alt="Current weather icon"
+            id="current-img"
+          />
         </div>
-        <div class="forecast-card">
-          <span>Tomorrow</span>
-          <img src="/images/weather/01d.png" alt="Weather icon" />
-          <span>22°C</span>
-          <span>17°C</span>
+        <h1>22<span>°C</span></h1>
+        <p id="current-description">Clear Sky</p>
+        <p id="current-date">
+          <span>Today</span><span>.</span><span>Tue, 22 Oct</span>
+        </p>
+        <div id="current-location">
+          <img src="/images/location_on.svg" alt="Location icon" />
+          <p>Lima</p>
         </div>
-        <div class="forecast-card">
-          <span>Tomorrow</span>
-          <img src="/images/weather/01d.png" alt="Weather icon" />
-          <span>22°C</span>
-          <span>17°C</span>
+      </section>
+      <section id="forecast">
+        <div id="forecast-temperature-btns">
+          <button class="active">°C</button>
+          <button>°F</button>
         </div>
-        <div class="forecast-card">
-          <span>Tomorrow</span>
-          <img src="/images/weather/01d.png" alt="Weather icon" />
-          <span>22°C</span>
-          <span>17°C</span>
-        </div>
-      </div>
-      <h2>Today's Hightlights</h2>
-      <div id="forecast-highlights">
-        <div class="forecast-highlight">
-          <p>Wind status</p>
-          <p><span>4.64</span>ms</p>
-        </div>
-        <div class="forecast-highlight">
-          <p>Humidity</p>
-          <p><span>83</span>%</p>
-          <div>
-            <div id="humidity-percent">
-              <span>0%</span>
-              <span>50%</span>
-              <span>100%</span>
-            </div>
-            <div id="humidity-bar">
-              <div id="humidity-bar-fill"></div>
-            </div>
+        <div id="forecast-cards">
+          <div class="forecast-card">
+            <span>Tomorrow</span>
+            <img src="/images/weather/01d.png" alt="Weather icon" />
+            <span>22°C</span>
+            <span>17°C</span>
+          </div>
+          <div class="forecast-card">
+            <span>Tomorrow 1</span>
+            <img src="/images/weather/01d.png" alt="Weather icon" />
+            <span>22°C</span>
+            <span>17°C</span>
+          </div>
+          <div class="forecast-card">
+            <span>Tomorrow 2</span>
+            <img src="/images/weather/01d.png" alt="Weather icon" />
+            <span>22°C</span>
+            <span>17°C</span>
+          </div>
+          <div class="forecast-card">
+            <span>Tomorrow 3</span>
+            <img src="/images/weather/01d.png" alt="Weather icon" />
+            <span>22°C</span>
+            <span>17°C</span>
+          </div>
+          <div class="forecast-card">
+            <span>Tomorrow 4</span>
+            <img src="/images/weather/01d.png" alt="Weather icon" />
+            <span>22°C</span>
+            <span>17°C</span>
           </div>
         </div>
-        <div class="forecast-highlight">
-          <p>Visibility</p>
-          <p><span>10</span> km</p>
+        <h2>Today's Hightlights</h2>
+        <div id="forecast-highlights">
+          <div class="forecast-highlight">
+            <p>Wind status</p>
+            <p><span>4.64</span>ms</p>
+          </div>
+          <div class="forecast-highlight">
+            <p>Humidity</p>
+            <p><span>83</span>%</p>
+            <div>
+              <div id="humidity-percent">
+                <span>0%</span>
+                <span>50%</span>
+                <span>100%</span>
+              </div>
+              <div id="humidity-bar">
+                <div id="humidity-bar-fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="forecast-highlight">
+            <p>Visibility</p>
+            <p><span>10</span> km</p>
+          </div>
+          <div class="forecast-highlight">
+            <p>Air Pressure</p>
+            <p><span>1016</span> mb</p>
+          </div>
         </div>
-        <div class="forecast-highlight">
-          <p>Air Pressure</p>
-          <p><span>1016</span> mb</p>
-        </div>
-      </div>
-      <p id="created-by">Created by <b>Harold Carazas</b></p>
-    </section>
+        <p id="created-by">Created by <b>Harold Carazas</b></p>
+      </section>
+    </main>
   </body>
 </html>
