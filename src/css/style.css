@@ -37,26 +37,37 @@ h2 {
 
 /* Sidebar */
 #sidebar {
-  display: none;
-  flex-direction: column;
-  gap: 2rem;
   position: absolute;
   z-index: 30;
   top: 0;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 0;
+  overflow: hidden;
   background-color: var(--primary-color);
   color: var(--primary-font-color);
-  padding: 1.5rem;
   transition: all 0.3s ease-in-out;
+  padding: 0;
 }
 
 #sidebar.active {
-  display: flex;
+  width: 420px;
+  padding: 1.5rem;
+}
+
+#btn-close {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-font-color);
+  font-size: 20px;
+  text-align: end;
+  width: 100%;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
 
 #form-search {
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -386,7 +397,7 @@ h2 {
     margin: 1.5rem auto 0 auto;
   }
 
-  #sidebar {
+  #sidebar.active {
     width: 420px;
   }
 
@@ -440,16 +451,16 @@ h2 {
 }
 
 @media screen and (min-width: 1200px) {
-  #sidebar {
-    width: 500px;
+  #sidebar.active {
+    width: 450px;
   }
 
   #current-weather {
-    width: 500px;
+    width: 450px;
   }
 
   #forecast {
-    width: calc(100% - 500);
+    width: calc(100% - 450px);
   }
 
   .forecast-card {
