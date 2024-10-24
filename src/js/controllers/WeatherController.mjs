@@ -3,14 +3,9 @@ import WeatherView from "../views/WeatherView.mjs";
 import MainController from "./MainController.mjs";
 
 export default class WeatherController {
-  constructor() {
-    this.city = "";
+  constructor(city) {
+    this.city = city;
     this.weatherModel = new Weather();
-  }
-
-  setCity(newCity) {
-    this.city = newCity;
-    this.updateCurrentWeather();
   }
 
   async updateCurrentWeather() {

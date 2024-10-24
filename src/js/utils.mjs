@@ -13,9 +13,19 @@ export function setLocalStorage(key, data) {
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
     event.preventDefault();
-    callback();
+    callback(event);
   });
   qs(selector).addEventListener("click", callback);
+}
+
+export function setClicks(selector, callback) {
+  document.querySelectorAll(selector).forEach((element) => {
+    element.addEventListener("touchend", (event) => {
+      event.preventDefault();
+      callback(event);
+    });
+    element.addEventListener("click", callback);
+  });
 }
 
 export function setSubmit(form, callback) {

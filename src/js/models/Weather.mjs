@@ -7,7 +7,6 @@ export default class Weather {
       `${weatherURL}?q=${cityName}&appid=${API_WEATHER_KEY}&units=metric`,
     );
     const data = await this.convertToJson(response);
-    console.log(data);
     return data;
   }
 

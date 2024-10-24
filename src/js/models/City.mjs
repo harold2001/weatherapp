@@ -9,7 +9,6 @@ export default class City {
       headers: { "X-Api-Key": API_CITIES_KEY },
     });
     const data = await convertToJson(response);
-    console.log(data);
     return data;
   }
 }
