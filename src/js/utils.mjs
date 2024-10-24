@@ -35,6 +35,31 @@ export function setSubmit(form, callback) {
   });
 }
 
+export function setErrorToast(message) {
+  const toast = `
+    <div id="toast">
+      <img src="/images/wave.svg" alt="Wave Icon" class="wave" />
+      <div class="icon-container">
+        <img src="/images/close-icon.svg" alt="Close Icon" class="icon" />
+      </div>
+      <div class="message-text-container">
+        <p class="message-text">Error message</p>
+        <p class="sub-text">${message}</p>
+      </div>
+      <img src="/images/cross-icon.svg" alt="Cross Icon" class="cross-icon" />
+    </div>
+  `;
+  qs("main").insertAdjacentHTML("beforeend", toast);
+
+  setTimeout(() => {
+    qs("#toast").classList.add("no-active");
+  }, 1500);
+
+  setTimeout(() => {
+    qs("#toast").remove();
+  }, 2500);
+}
+
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);

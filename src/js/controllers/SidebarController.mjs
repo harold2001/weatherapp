@@ -1,5 +1,5 @@
 import City from "../models/City.mjs";
-import { qs, setClicks } from "../utils.mjs";
+import { qs, setClicks, setErrorToast } from "../utils.mjs";
 import SidebarView from "../views/SidebarView.mjs";
 import WeatherController from "./WeatherController.mjs";
 
@@ -7,7 +7,6 @@ export default class SidebarController {
   constructor() {
     this.typingTimeout = null;
     this.view = new SidebarView();
-    this.loader = true;
   }
 
   init() {
@@ -19,10 +18,6 @@ export default class SidebarController {
   }
 
   handleTyping(event) {
-    if (!this.loader) {
-      this.view.showLoader();
-    }
-
     clearTimeout(this.typingTimeout);
 
     this.typingTimeout = setTimeout(() => {
@@ -31,12 +26,16 @@ export default class SidebarController {
   }
 
   async handleCityChange(event) {
-    const cityName = event.target.value;
-    const cities = !cityName ? [] : await City.getCitiesByName(cityName);
-    this.view.hideLoader();
-    this.loader = false;
-    this.view.render({ cities });
-    setClicks("#form-results > li", this.handleClickCity);
+    try {
+      const cityName = event.target.value;
+      // const cities = [];
+      const cities = !cityName ? [] : await City.getCitiesByName(cityName);
+      this.view.hideLoader();
+      this.view.render({ cities });
+      setClicks("#form-results > li", this.handleClickCity);
+    } catch (error) {
+      setErrorToast("Error getting cities");
+    }
   }
 
   handleClickCity(e) {

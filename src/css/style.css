@@ -361,6 +361,7 @@ input[name="city"]:focus {
 .forecast-card > span:nth-child(4) {
   grid-column: 2/3;
   grid-row: 3/4;
+  color: var(--secondary-font-color);
 }
 
 #forecast-highlights {
@@ -472,6 +473,91 @@ input[name="city"]:focus {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Toast */
+#toast {
+  width: 330px;
+  height: 80px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+  transition: all 1s ease-in-out;
+  overflow: hidden;
+}
+
+#toast.no-active {
+  width: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.wave {
+  position: absolute;
+  transform: rotate(90deg);
+  left: -31px;
+  top: 32px;
+  width: 80px;
+}
+
+.icon-container {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fc0c0c48;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+.icon {
+  width: 17px;
+  height: 17px;
+}
+
+.message-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.message-text,
+.sub-text {
+  margin: 0;
+  cursor: default;
+}
+
+.message-text {
+  color: #d10d0d;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.cross-icon {
+  width: 18px;
+  height: 18px;
+  color: #555;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1024px) {

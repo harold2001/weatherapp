@@ -1,22 +1,38 @@
+import { convertToJson } from "../utils.mjs";
+
 const weatherURL = import.meta.env.VITE_API_WEATHER_URL;
 const API_WEATHER_KEY = import.meta.env.VITE_API_WEATHER_KEY;
 
 export default class Weather {
-  async getCurrentCityData(cityName) {
+  async getDataByName(cityName) {
     const response = await fetch(
-      `${weatherURL}?q=${cityName}&appid=${API_WEATHER_KEY}&units=metric`,
+      `${weatherURL}/weather?q=${cityName}&appid=${API_WEATHER_KEY}&units=metric`,
     );
-    const data = await this.convertToJson(response);
+    const data = await convertToJson(response);
     return data;
   }
 
-  async convertToJson(res) {
-    const jsonResponse = await res.json();
+  async getDataByCoordinates(latitude, longitude) {
+    const response = await fetch(
+      `${weatherURL}/weather?lat=${latitude}&lon=${longitude}&appid=${API_WEATHER_KEY}&units=metric`,
+    );
+    const data = await convertToJson(response);
+    return data;
+  }
 
-    if (res.ok) {
-      return jsonResponse;
-    } else {
-      throw { name: "servicesError", message: jsonResponse };
-    }
+  async getForecastByName(cityName) {
+    const response = await fetch(
+      `${weatherURL}/forecast?q=${cityName}&appid=${API_WEATHER_KEY}&units=metric`,
+    );
+    const data = await convertToJson(response);
+    return data;
+  }
+
+  async getForecastByCoordinates(latitude, longitude) {
+    const response = await fetch(
+      `${weatherURL}/forecast?lat=${latitude}&lon=${longitude}&appid=${API_WEATHER_KEY}&units=metric`,
+    );
+    const data = await convertToJson(response);
+    return data;
   }
 }
