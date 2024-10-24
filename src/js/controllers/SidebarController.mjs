@@ -33,6 +33,7 @@ export default class SidebarController {
       this.view.hideLoader();
       this.view.render({ cities });
       setClicks("#form-results > li", this.handleClickCity);
+      event.target.blur();
     } catch (error) {
       setErrorToast("Error getting cities");
     }
