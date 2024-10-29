@@ -16,7 +16,7 @@
   </head>
   <body>
     <main>
-      <div id="sidebar">
+      <div id="sidebar" class="active">
         <button id="btn-close">X</button>
         <form id="form-search">
           <label for="city"
@@ -32,7 +32,6 @@
           <button type="submit">Search</button>
         </form>
         <p id="results-message"></p>
-        <ul id="form-results"></ul>
       </div>
       <section id="current-weather">
         <div>
@@ -48,14 +47,12 @@
             id="current-img"
           />
         </div>
-        <h1>22<span>°C</span></h1>
-        <p id="current-description">Clear Sky</p>
-        <p id="current-date">
-          <span>Today</span><span>.</span><span>Tue, 22 Oct</span>
-        </p>
+        <h1><span>°C</span></h1>
+        <p id="current-description"></p>
+        <p id="current-date"><span>Today</span><span>.</span><span></span></p>
         <div id="current-location">
           <img src="/images/location_on.svg" alt="Location icon" />
-          <p>Lima</p>
+          <p></p>
         </div>
       </section>
       <section id="forecast">
@@ -65,45 +62,45 @@
         </div>
         <div id="forecast-cards">
           <div class="forecast-card">
-            <span>Tomorrow</span>
+            <span></span>
             <img src="/images/weather/01d.png" alt="Weather icon" />
-            <span>22°C</span>
-            <span>17°C</span>
+            <span></span>
+            <span></span>
           </div>
           <div class="forecast-card">
-            <span>Tomorrow 1</span>
+            <span></span>
             <img src="/images/weather/01d.png" alt="Weather icon" />
-            <span>22°C</span>
-            <span>17°C</span>
+            <span></span>
+            <span></span>
           </div>
           <div class="forecast-card">
-            <span>Tomorrow 2</span>
+            <span></span>
             <img src="/images/weather/01d.png" alt="Weather icon" />
-            <span>22°C</span>
-            <span>17°C</span>
+            <span></span>
+            <span></span>
           </div>
           <div class="forecast-card">
-            <span>Tomorrow 3</span>
+            <span></span>
             <img src="/images/weather/01d.png" alt="Weather icon" />
-            <span>22°C</span>
-            <span>17°C</span>
+            <span></span>
+            <span></span>
           </div>
           <div class="forecast-card">
-            <span>Tomorrow 4</span>
+            <span></span>
             <img src="/images/weather/01d.png" alt="Weather icon" />
-            <span>22°C</span>
-            <span>17°C</span>
+            <span></span>
+            <span></span>
           </div>
         </div>
         <h2>Today's Hightlights</h2>
         <div id="forecast-highlights">
           <div class="forecast-highlight">
             <p>Wind status</p>
-            <p><span id="wind-speed">4.64</span>ms</p>
+            <p><span id="wind-speed"></span>ms</p>
           </div>
           <div class="forecast-highlight">
             <p>Humidity</p>
-            <p><span id="humidty">83</span>%</p>
+            <p><span id="humidty"></span>%</p>
             <div>
               <div id="humidity-percent">
                 <span>0%</span>
@@ -117,11 +114,11 @@
           </div>
           <div class="forecast-highlight">
             <p>Visibility</p>
-            <p><span id="visibility">10</span> km</p>
+            <p><span id="visibility"></span> km</p>
           </div>
           <div class="forecast-highlight">
             <p>Air Pressure</p>
-            <p><span id="aire-pressure">1016</span> mb</p>
+            <p><span id="aire-pressure"></span> mb</p>
           </div>
         </div>
         <p id="created-by">Created by <b>Harold Carazas</b></p>

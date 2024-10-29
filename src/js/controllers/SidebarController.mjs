@@ -1,5 +1,11 @@
 import City from "../models/City.mjs";
-import { qs, setClicks, setErrorToast } from "../utils.mjs";
+import {
+  getLocalStorage,
+  qs,
+  setClicks,
+  setErrorToast,
+  setLocalStorage,
+} from "../utils.mjs";
 import SidebarView from "../views/SidebarView.mjs";
 import WeatherController from "./WeatherController.mjs";
 
@@ -10,7 +16,7 @@ export default class SidebarController {
   }
 
   init() {
-    this.view.showLoader();
+    this.view.init();
     qs("input[name='city']").addEventListener(
       "input",
       this.handleTyping.bind(this),
@@ -25,25 +31,35 @@ export default class SidebarController {
     }, 500);
   }
 
-  async handleCityChange(event) {
-    try {
-      const cityName = event.target.value;
-      // const cities = [];
-      const cities = !cityName ? [] : await City.getCitiesByName(cityName);
-      this.view.hideLoader();
-      this.view.render({ cities });
-      setClicks("#form-results > li", this.handleClickCity);
-      event.target.blur();
-    } catch (error) {
-      setErrorToast("Error getting cities");
-    }
-  }
-
   handleClickCity(e) {
     const liElement = e.target.closest("li");
     if (!liElement) return;
     const { city } = liElement.dataset;
     const controller = new WeatherController(city);
     controller.updateCurrentWeather();
+  }
+
+  static updateHistory(city, country) {
+    const citiesSearched = getLocalStorage("citiesSearched") || [];
+    const cityFound = citiesSearched.find((c) => c.city === city);
+    if (!cityFound) {
+      citiesSearched.push({ city, country, timestamp: Date() });
+      setLocalStorage("citiesSearched", citiesSearched);
+      this.view.renderHistory();
+    }
+  }
+
+  async handleCityChange(event) {
+    try {
+      const city = event.target.value;
+      const cities = !city ? [] : await City.getCitiesByName(city);
+      // const cities = [];
+      this.view.hideLoader();
+      this.view.renderResults({ cities });
+      setClicks("#form-results > li", this.handleClickCity);
+      event.target.blur();
+    } catch (error) {
+      setErrorToast("Error getting cities");
+    }
   }
 }

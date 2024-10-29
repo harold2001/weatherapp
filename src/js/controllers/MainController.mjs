@@ -10,7 +10,7 @@ export default class MainController {
   }
 
   init() {
-    MainView.setCurrentDate();
+    MainView.init();
     setClick("#btn-close", MainController.closeSidebar);
     setClick("#btn-search", MainController.openSidebar);
     setClick("#btn-location", () =>
@@ -25,6 +25,7 @@ export default class MainController {
 
   handleSearch() {
     const city = this.formSearch.city.value.toLowerCase();
+
     const controller = new WeatherController(city);
     controller.updateCurrentWeather();
   }
@@ -35,7 +36,7 @@ export default class MainController {
     controller.updateCurrentWeather();
   }
 
-  handleErrorGeolocation(error) {
+  handleErrorGeolocation() {
     setErrorToast("Error getting your location");
   }
 

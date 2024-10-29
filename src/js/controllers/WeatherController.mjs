@@ -2,6 +2,7 @@ import Weather from "../models/Weather.mjs";
 import { setErrorToast } from "../utils.mjs";
 import WeatherView from "../views/WeatherView.mjs";
 import MainController from "./MainController.mjs";
+import SidebarController from "./SidebarController.mjs";
 
 export default class WeatherController {
   constructor(city = null, latitude = null, longitude = null) {
@@ -13,7 +14,7 @@ export default class WeatherController {
 
   async updateCurrentWeather() {
     try {
-      const { name, main, weather, wind, visibility } = this.city
+      const { name, main, weather, wind, visibility, sys } = this.city
         ? await this.weatherModel.getDataByName(this.city)
         : await this.weatherModel.getDataByCoordinates(
             this.latitude,
@@ -41,6 +42,7 @@ export default class WeatherController {
       view.render();
 
       MainController.closeSidebar();
+      SidebarController.updateHistory(name, sys?.country);
     } catch (error) {
       setErrorToast("Error getting weather data");
     }

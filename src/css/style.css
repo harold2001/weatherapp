@@ -48,11 +48,13 @@ h2 {
   color: var(--primary-font-color);
   transition: all 0.3s ease-in-out;
   padding: 0;
+  display: grid;
+  grid-template-rows: auto auto auto 150px auto 1fr;
 }
 
 #sidebar.active {
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.3rem;
 }
 
 #btn-close {
@@ -62,8 +64,9 @@ h2 {
   font-size: 20px;
   text-align: end;
   width: 100%;
-  margin-bottom: 15px;
   cursor: pointer;
+  margin-bottom: 10px;
+  grid-row: 1/2;
 }
 
 #form-search {
@@ -73,6 +76,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  grid-row: 2/3;
 }
 
 #form-search > label {
@@ -104,63 +108,79 @@ input[name="city"]:focus {
   cursor: pointer;
 }
 
-#form-results {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  overflow-y: auto;
-  max-height: 80%;
-}
-
-#form-results::-webkit-scrollbar {
-  width: 5px;
-}
-
-#form-results:hover::-webkit-scrollbar {
-  width: 8px;
-}
-
-#form-results::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-#form-results::-webkit-scrollbar-thumb {
-  background-color: var(--secondary-color);
-}
-
-#form-results::-webkit-scrollbar-thumb:hover {
-  background-color: var(--tertiary-color);
-}
-
-#form-results > li {
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.4rem 1rem;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-
-#form-results > li:hover {
-  border-color: var(--tertiary-color);
-}
-
-#form-results > li:hover .arrow-icon {
-  visibility: visible;
-}
-
-#form-results > li > img {
-  height: 25px;
-  visibility: hidden;
-}
-
 #results-message {
   display: none;
   font-size: var(--small-font);
   color: var(--secondary-font-color);
   margin-top: 1rem;
+  grid-row: 3/4;
+}
+
+#history-list {
+  grid-row: 4/5;
+}
+
+#form-results {
+  grid-row: 6/7;
+}
+
+.sidebar-subtitle {
+  font-size: var(--small-font);
+  color: var(--secondary-font-color);
+  margin: 15px 0 5px 0;
+  padding: 10px 0 0 5px;
+  border-top: 1px solid var(--secondary-font-color);
+}
+
+.search-options {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+}
+
+.search-options li {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.8rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.search-options li:hover {
+  border-color: var(--tertiary-color);
+}
+
+.search-options li:hover .arrow-icon {
+  visibility: visible;
+}
+
+.search-options li > img {
+  height: 25px;
+  visibility: hidden;
+}
+
+.search-options::-webkit-scrollbar {
+  width: 5px;
+}
+
+.search-options:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+.search-options::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.search-options::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+}
+
+.search-options::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary-font-color);
 }
 
 /* Current Weather */
@@ -413,7 +433,7 @@ input[name="city"]:focus {
 
 #humidity-bar-fill {
   height: 100%;
-  width: 83%;
+  width: 0%;
   background-color: #ffec65;
   border-radius: 100px;
 }
