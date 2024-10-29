@@ -9,6 +9,14 @@ export default class MainController {
     this.SidebarController = new SidebarController();
   }
 
+  static closeSidebar() {
+    qs("#sidebar").classList.remove("active");
+  }
+
+  static openSidebar() {
+    qs("#sidebar").classList.add("active");
+  }
+
   init() {
     MainView.init();
     setClick("#btn-close", MainController.closeSidebar);
@@ -38,13 +46,5 @@ export default class MainController {
 
   handleErrorGeolocation() {
     setErrorToast("Error getting your location");
-  }
-
-  static closeSidebar() {
-    qs("#sidebar").classList.remove("active");
-  }
-
-  static openSidebar() {
-    qs("#sidebar").classList.toggle("active");
   }
 }

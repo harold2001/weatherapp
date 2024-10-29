@@ -12,7 +12,7 @@ export default class MainView {
 
     const { city } = citiesSearched[0];
     const controller = new WeatherController(city, null, null);
-    // controller.updateCurrentWeather();
+    controller.updateCurrentWeather();
   }
 
   static setCurrentDate() {

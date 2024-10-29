@@ -42,7 +42,8 @@ export default class WeatherController {
       view.render();
 
       MainController.closeSidebar();
-      SidebarController.updateHistory(name, sys?.country);
+      const controller = new SidebarController();
+      controller.updateHistory(name, sys?.country);
     } catch (error) {
       setErrorToast("Error getting weather data");
     }
