@@ -53,7 +53,7 @@ export default class WeatherController {
 
   getFiveDaysForecast(list) {
     const today = new Date();
-    const limitDate = today.setDate(today.getDate() + 5);
+    const limitDate = today.setDate(today.getDate() + 4);
     const days = {};
 
     for (const forecast of list) {
