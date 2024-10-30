@@ -50,15 +50,19 @@ export default class SidebarController {
     }
   }
 
-  updateHistory(city, country) {
+  updateHistory(city, country, unit) {
     const citiesSearched = getLocalStorage("citiesSearched") || [];
-    const cityFound = citiesSearched.find(
+    const index = citiesSearched.findIndex(
       (c) => c.city === city && c.country === country,
     );
-    if (!cityFound) {
-      citiesSearched.unshift({ city, country, timestamp: Date() });
-      setLocalStorage("citiesSearched", citiesSearched);
-      this.view.renderHistory();
+
+    if (index !== -1) {
+      citiesSearched.splice(index, 1);
     }
+
+    citiesSearched.unshift({ city, country, unit, timestamp: Date() });
+
+    setLocalStorage("citiesSearched", citiesSearched);
+    this.view.renderHistory();
   }
 }

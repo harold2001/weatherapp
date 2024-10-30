@@ -5,11 +5,12 @@ import MainController from "./MainController.mjs";
 import SidebarController from "./SidebarController.mjs";
 
 export default class WeatherController {
-  constructor(city = null, latitude = null, longitude = null) {
+  constructor(city = null, latitude = null, longitude = null, unit = "metric") {
     this.city = city;
     this.latitude = latitude;
     this.longitude = longitude;
-    this.weatherModel = new Weather();
+    this.unit = unit;
+    this.weatherModel = new Weather(unit);
   }
 
   async updateCurrentWeather() {
@@ -38,12 +39,13 @@ export default class WeatherController {
         airPressure: main.pressure,
         icon: weather[0].icon,
         fObject: forecastData,
+        unit: this.unit,
       });
       view.render();
 
       MainController.closeSidebar();
       const controller = new SidebarController();
-      controller.updateHistory(name, sys?.country);
+      controller.updateHistory(name, sys?.country, this.unit);
     } catch (error) {
       setErrorToast("Error getting weather data");
     }

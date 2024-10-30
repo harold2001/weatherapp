@@ -1,6 +1,6 @@
 import MainController from "../controllers/MainController.mjs";
 import WeatherController from "../controllers/WeatherController.mjs";
-import { getLocalStorage, qs } from "../utils.mjs";
+import { getLocalStorage, qs, qsAll } from "../utils.mjs";
 
 export default class MainView {
   static init() {
@@ -10,8 +10,17 @@ export default class MainView {
       return MainController.openSidebar();
     }
 
-    const { city } = citiesSearched[0];
-    const controller = new WeatherController(city, null, null);
+    const { city, unit } = citiesSearched[0];
+    const btns = qsAll("#forecast-temperature-btns > button");
+    btns.forEach((btn) => btn.classList.remove("active"));
+
+    if (unit === "metric") {
+      btns[0].classList.add("active");
+    } else {
+      btns[1].classList.add("active");
+    }
+
+    const controller = new WeatherController(city, null, null, unit);
     controller.updateCurrentWeather();
   }
 

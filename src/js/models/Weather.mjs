@@ -4,9 +4,13 @@ const weatherURL = import.meta.env.VITE_API_WEATHER_URL;
 const API_WEATHER_KEY = import.meta.env.VITE_API_WEATHER_KEY;
 
 export default class Weather {
+  constructor(unit) {
+    this.unit = unit;
+  }
+
   async getDataByName(cityName) {
     const response = await fetch(
-      `${weatherURL}/weather?q=${cityName}&appid=${API_WEATHER_KEY}&units=metric`,
+      `${weatherURL}/weather?q=${cityName}&appid=${API_WEATHER_KEY}&units=${this.unit}`,
     );
     const data = await convertToJson(response);
     return data;
@@ -14,7 +18,7 @@ export default class Weather {
 
   async getDataByCoordinates(latitude, longitude) {
     const response = await fetch(
-      `${weatherURL}/weather?lat=${latitude}&lon=${longitude}&appid=${API_WEATHER_KEY}&units=metric`,
+      `${weatherURL}/weather?lat=${latitude}&lon=${longitude}&appid=${API_WEATHER_KEY}&units=${this.unit}`,
     );
     const data = await convertToJson(response);
     return data;
@@ -22,7 +26,7 @@ export default class Weather {
 
   async getForecastByName(cityName) {
     const response = await fetch(
-      `${weatherURL}/forecast?q=${cityName}&appid=${API_WEATHER_KEY}&units=metric`,
+      `${weatherURL}/forecast?q=${cityName}&appid=${API_WEATHER_KEY}&units=${this.unit}`,
     );
     const data = await convertToJson(response);
     return data;
@@ -30,7 +34,7 @@ export default class Weather {
 
   async getForecastByCoordinates(latitude, longitude) {
     const response = await fetch(
-      `${weatherURL}/forecast?lat=${latitude}&lon=${longitude}&appid=${API_WEATHER_KEY}&units=metric`,
+      `${weatherURL}/forecast?lat=${latitude}&lon=${longitude}&appid=${API_WEATHER_KEY}&units=${this.unit}`,
     );
     const data = await convertToJson(response);
     return data;

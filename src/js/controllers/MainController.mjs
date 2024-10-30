@@ -1,4 +1,12 @@
-import { qs, setClick, setErrorToast, setSubmit } from "../utils.mjs";
+import {
+  getLocalStorage,
+  qs,
+  qsAll,
+  setClick,
+  setClicks,
+  setErrorToast,
+  setSubmit,
+} from "../utils.mjs";
 import MainView from "../views/MainView.mjs";
 import SidebarController from "./SidebarController.mjs";
 import WeatherController from "./WeatherController.mjs";
@@ -29,6 +37,22 @@ export default class MainController {
     );
     setSubmit(this.formSearch, this.handleSearch.bind(this));
     this.SidebarController.init();
+    setClicks("#forecast-temperature-btns > button", this.handleClickUnit);
+  }
+
+  handleClickUnit(e) {
+    const unit = e.target.dataset.unit;
+
+    const citiesSearched = getLocalStorage("citiesSearched");
+    if (citiesSearched?.length > 0) {
+      const btns = qsAll("#forecast-temperature-btns > button");
+      const { city } = citiesSearched[0];
+      const controller = new WeatherController(city, null, null, unit);
+
+      btns.forEach((btn) => btn.classList.remove("active"));
+      e.target.classList.add("active");
+      controller.updateCurrentWeather();
+    }
   }
 
   handleSearch() {

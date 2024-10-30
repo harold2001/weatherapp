@@ -11,6 +11,7 @@ export default class WeatherView {
     airPressure,
     icon,
     fObject,
+    unit,
   }) {
     this.name = name;
     this.temp = temp;
@@ -21,6 +22,7 @@ export default class WeatherView {
     this.airPressure = airPressure;
     this.icon = icon;
     this.fObject = fObject;
+    this.unit = unit;
   }
 
   render() {
@@ -33,9 +35,10 @@ export default class WeatherView {
       windSpeed = qs("#wind-speed"),
       visibility = qs("#visibility"),
       airPressure = qs("#aire-pressure"),
-      humidityBar = qs("#humidity-bar-fill");
+      humidityBar = qs("#humidity-bar-fill"),
+      symbol = this.unit === "metric" ? "°C" : "°F";
 
-    h1.innerHTML = `${parseInt(this.temp)}<span>°C</span>`;
+    h1.innerHTML = `${parseInt(this.temp)}<span>${symbol}</span>`;
     currentDescription.textContent = this.main;
     currentLocation.textContent = this.name;
     currentImg.src = `/images/weather/${this.icon}.png`;
@@ -59,8 +62,8 @@ export default class WeatherView {
       <div class="forecast-card">
         <span>${date}</span>
         <img src="/images/weather/${icon}.png" alt="Weather icon" />
-        <span>${tempMax.toFixed(0)}°C</span>
-        <span>${tempMin.toFixed(0)}°C</span>
+        <span>${tempMax.toFixed(0)}${symbol}</span>
+        <span>${tempMin.toFixed(0)}${symbol}</span>
       </div>
       `;
     }
