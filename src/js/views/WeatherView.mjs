@@ -35,7 +35,7 @@ export default class WeatherView {
       airPressure = qs("#aire-pressure"),
       humidityBar = qs("#humidity-bar-fill");
 
-    h1.textContent = `${parseInt(this.temp)}°C`;
+    h1.innerHTML = `${parseInt(this.temp)}<span>°C</span>`;
     currentDescription.textContent = this.main;
     currentLocation.textContent = this.name;
     currentImg.src = `/images/weather/${this.icon}.png`;

@@ -50,15 +50,15 @@ export default class WeatherController {
   }
 
   getFiveDaysForecast(list) {
-    const today = new Date().getDate();
+    const today = new Date();
+    const limitDate = today.setDate(today.getDate() + 5);
     const days = {};
 
     for (const forecast of list) {
       const fDate = new Date(forecast.dt_txt);
+      if (fDate > limitDate) continue;
+
       const fDay = fDate.getDate();
-
-      if (fDay === today || fDay >= today + 6) continue;
-
       const max = forecast.main.temp_max;
       const min = forecast.main.temp_min;
 
@@ -82,6 +82,10 @@ export default class WeatherController {
       days[day].tempMin /= days[day].times;
     }
 
-    return days;
+    const sortedDays = Object.values(days).sort(
+      (a, b) => a.dateObj - b.dateObj,
+    );
+
+    return sortedDays;
   }
 }
